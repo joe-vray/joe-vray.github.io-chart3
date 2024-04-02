@@ -7,25 +7,22 @@ window.function = function (data, width, height) {
    
     let ht = `<!DOCTYPE html>
     <html>
-      <head>
-        <link  id='GoogleFontsLink' href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet' type='text/css'>
-        <script>
-     WebFontConfig = {
-     google: 
-    {families: ["Open Sans",]},active: function() { 
-     DrawTheChart(ChartData,ChartOptions,"chart-01","horizontalBar")}
-    };
-        </script>
-        <script asyn src="js/webfont.js">
-        </script><script src="js/Chart.min.js"></script>
-        <script>
-    function DrawTheChart(ChartData,ChartOptions,ChartId,ChartType){
-    eval('var myLine = new Chart(document.getElementById(ChartId).getContext("2d"),{type:"'+ChartType+'",data:ChartData,options:ChartOptions});document.getElementById(ChartId).getContext("2d").stroke();')
-    }
-        </script>
-      </head>
-      <body>
-        <canvas  id="chart-01" width="700" height="400"  style="background-color:rgba(255,255,255,1.00);border-radius:0px;width:700px;height:400px;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px"></canvas>
+    <head>
+      <meta charset="utf-8">
+      <title>Radar Chart with Chart.js</title>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <style>
+        body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+        }
+      </style>
+    </head>
+    <body>
+        <canvas  id="chart-01" width="${width}%" height="${height}px"></canvas>
         <script> function MoreChartOptions(){} 
     var ChartData = {
       labels : ["proj1","proj2","proj3","proj4","proj5","proj6","proj7",],
