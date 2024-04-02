@@ -14,7 +14,7 @@ window.function = function (projectsData, statusData, width, height) {
   var statusList = [];
 
   // Loop through the sales data
-  for (var i = 0; i < projectsDataArray.length; i++) {
+/*   for (var i = 0; i < projectsDataArray.length; i++) {
     var currentProject = projectsDataArray[i];
     var currentStatus = statusDataArray[i];
 
@@ -37,7 +37,7 @@ window.function = function (projectsData, statusData, width, height) {
     else {
       rolledUpDataArray[currentStatus][currentProject] = 1;
     }
-  }
+  } */
 
 
   width = width.value ?? 100;
