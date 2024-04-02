@@ -1,12 +1,12 @@
 {
     "kind": "column",
     "name": "chart: Line with Changing Color",
-    "description": "",
+    "description": "Horizontal Stacked Bar Chart",
     "author": "",
     "params": [
       {
-        "name": "data",
-        "displayName": "Timeline data",
+        "name": "projectsData",
+        "displayName": "Project data",
         "type": "string"
       },
       {
