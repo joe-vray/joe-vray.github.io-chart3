@@ -10,6 +10,11 @@
         "type": "string"
       },
       {
+        "name": "statusData",
+        "displayName": "Status data",
+        "type": "string"
+      },
+      {
         "name": "width",
         "displayName": "Width (default: 100%)",
         "type": "number"
