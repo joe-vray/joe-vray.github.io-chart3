@@ -68,43 +68,37 @@ window.function = function (projectsData, statusData, width, height) {
             const pointLabelFontSize = window.innerWidth <= 768 ? 12 : 13;
             
             const data = {
-              labels: [${projectsList}],
+              labels: ["proj1","proj2","proj3","proj4","proj5","proj6","proj7",],
               datasets: [
                 {
-                  data : [${rolledUpDataArray[0]}],
+                  data : [65,8,90,81,56,55,40,],
                   backgroundColor :'#3498db',
                   borderColor : 'rgba(136,136,136,0.5)',
                   label:"${statusList[0]}"
                 },
                 {
-                  data : [${rolledUpDataArray[1]}],
+                  data : [21,48,40,19,96,27,100,],
                   backgroundColor :'#2ecc71',
                   borderColor : '#aaaaaa',
                   label:"${statusList[1]}"
                 },                
                 {
-                  data : [${rolledUpDataArray[2]}],
+                  data : [15,18,23,41,18,5,6,],
                   backgroundColor :'#9b59b6',
                   borderColor : '#9b59b6',
                   label:"${statusList[2]}"
                 },                
                 {
-                  data : [${rolledUpDataArray[3]}],
+                  data : [13,14,15,16,17,18,12,],
                   backgroundColor :'#f1c40f',
                   borderColor : '#f1c40f',
                   label:"${statusList[3]}"
                 },                
                 {
-                  data : [${rolledUpDataArray[4]}],
+                  data : [18,12,45,15,18,18,19,],
                   backgroundColor :'#bdc3c7',
                   borderColor : '#bdc3c7',
                   label:"${statusList[4]}"
-                },                
-                {
-                  data : [${rolledUpDataArray[5]}],
-                  backgroundColor :'#bdc3c7',
-                  borderColor : '#bdc3c7',
-                  label:"${statusList[5]}"
                 }
               ]
             };
@@ -176,7 +170,7 @@ window.function = function (projectsData, statusData, width, height) {
                 data: data,
                 options: options
               });
-              
+
      </script>
      </body>
      </html>
