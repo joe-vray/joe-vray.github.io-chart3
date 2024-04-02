@@ -9,12 +9,13 @@ window.function = function (projectsData, statusData, width, height) {
 
 
   // Object to store rolled up data
+  /*
   var rolledUpDataArray = [];
   var projectsList = [];
   var statusList = [];
 
   // Loop through the sales data
-/*   for (var i = 0; i < projectsDataArray.length; i++) {
+   for (var i = 0; i < projectsDataArray.length; i++) {
     var currentProject = projectsDataArray[i];
     var currentStatus = statusDataArray[i];
 
