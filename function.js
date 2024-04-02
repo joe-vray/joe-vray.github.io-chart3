@@ -59,121 +59,134 @@ window.function = function (projectsData, statusData, width, height) {
         }
       </style>
     </head>
+
     <body>
-        <canvas  id="myStackedBarChart" width="${width}%" height="${height}px"></canvas>
-        <script> 
-          document.addEventListener('DOMContentLoaded', function () {
-            const ctx = document.getElementById('myStackedBarChart').getContext('2d');
-            const textColor = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'white' : 'black';
-            const pointLabelFontSize = window.innerWidth <= 768 ? 12 : 13;
-            
-            const data = {
-              labels: ["proj1","proj2","proj3","proj4","proj5","proj6","proj7",],
-              datasets: [
-                {
-                  data : [65,8,90,81,56,55,40,],
-                  backgroundColor :'#3498db',
-                  borderColor : 'rgba(136,136,136,0.5)',
-                  label:"${statusList[0]}"
-                },
-                {
-                  data : [21,48,40,19,96,27,100,],
-                  backgroundColor :'#2ecc71',
-                  borderColor : '#aaaaaa',
-                  label:"${statusList[1]}"
-                },                
-                {
-                  data : [15,18,23,41,18,5,6,],
-                  backgroundColor :'#9b59b6',
-                  borderColor : '#9b59b6',
-                  label:"${statusList[2]}"
-                },                
-                {
-                  data : [13,14,15,16,17,18,12,],
-                  backgroundColor :'#f1c40f',
-                  borderColor : '#f1c40f',
-                  label:"${statusList[3]}"
-                },                
-                {
-                  data : [18,12,45,15,18,18,19,],
-                  backgroundColor :'#bdc3c7',
-                  borderColor : '#bdc3c7',
-                  label:"${statusList[4]}"
-                }
-              ]
-            };
+      <canvas  id="myStackedBarChart" width="${width}%" height="${height}px"></canvas>
+      <script> 
+        document.addEventListener('DOMContentLoaded', function () {
+          const ctx = document.getElementById('myStackedBarChart').getContext('2d');
+          const textColor = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'white' : 'black';
+          const pointLabelFontSize = window.innerWidth <= 768 ? 12 : 13;
+          
+          const data = {
+            "labels": [
+              "January",
+              "February",
+              "March",
+              "April",
+              "May",
+              "June",
+              "July"
+            ],
+            "datasets": [
+              {
+                "label": "Dataset 1",
+                "backgroundColor": "rgba(255, 99, 132, 0.5)",
+                "borderColor": "rgb(255, 99, 132)",
+                "borderWidth": 1,
+                "data": [
+                  -32,
+                  62,
+                  64,
+                  41,
+                  -31,
+                  -32,
+                  87
+                ]
+              },
+              {
+                "label": "Dataset 2",
+                "backgroundColor": "rgba(54, 162, 235, 0.5)",
+                "borderColor": "rgb(54, 162, 235)",
+                "data": [
+                  9,
+                  -100,
+                  -13,
+                  64,
+                  -57,
+                  26,
+                  20
+                ]
+              },
+              {
+                "label": "Dataset 3",
+                "backgroundColor": "rgba(255, 206, 86, 0.5)",
+                "borderColor": "rgb(255, 206, 86)",
+                "data": [
+                  -45,
+                  30,
+                  -20,
+                  50,
+                  -10,
+                  40,
+                  60
+                ]
+              },
+              {
+                "label": "Dataset 4",
+                "backgroundColor": "rgba(75, 192, 192, 0.5)",
+                "borderColor": "rgb(75, 192, 192)",
+                "data": [
+                  20,
+                  -10,
+                  30,
+                  -40,
+                  25,
+                  -15,
+                  35
+                ]
+              },
+              {
+                "label": "Dataset 5",
+                "backgroundColor": "rgba(153, 102, 255, 0.5)",
+                "borderColor": "rgb(153, 102, 255)",
+                "data": [
+                  10,
+                  -20,
+                  15,
+                  -25,
+                  18,
+                  -12,
+                  22
+                ]
+              }
+            ]
+          },
 
-            const options= {
-              responsive:false,
-                layout:{
-                  padding:{top:12,left:12,bottom:12,},},
-                  scales: {
-                    xAxes:[{
-                      stacked: true,gridLines:{borderDash:[],},
-                    }],
-                    yAxes:[{
-                      stacked: true,gridLines:{borderDash:[],},
-                    }],
-                },
-               plugins:{
-              datalabels:{display:true,
-                font:{
-                  style:' bold',},},
-              },
-              legend:{
-                labels:{
-                  generateLabels: function(chart){
-                     return  chart.data.datasets.map( function( dataset, i ){
-                      return{
-                        text:dataset.label,
-                        lineCap:dataset.borderCapStyle,
-                        lineDash:[],
-                        lineDashOffset: 0,
-                        lineJoin:dataset.borderJoinStyle,
-                        fillStyle:dataset.backgroundColor,
-                        strokeStyle:dataset.borderColor,
-                        lineWidth:dataset.pointBorderWidth,
-                        lineDash:dataset.borderDash,
-                      }
-                    })
-                  },
-              
-                },
-              },
-              
-              title:{
-                display:true,
-                text:'Chart Title',
-                fontColor:'#3498db',
-                fontSize:32,
-                fontStyle:' bold',
-                },
-              elements: {
-                arc: {
-              },
-                line: {
-              },
-                rectangle: {
-              borderWidth:3,
-              borderSkipped:'left',
-              },
-              },
-              tooltips:{
-              },
-              hover:{
-                mode:'nearest',
-                animationDuration:400,
-              },
-              };
-              const myStackedBarChart = new Chart(ctx, {
-                type: 'horizontalBar',
-                data: data,
-                options: options
-              });
+          const options = {
+            "elements": {
+              "rectangle": {
+                "borderWidth": 2
+              }
+            },
+            "responsive": true,
+            "legend": {
+              "position": "right"
+            },
+            "title": {
+              "display": true,
+              "text": "Chart.js Horizontal Bar Chart"
+            },
+            "scales": {
+              "xAxes": [{
+                "stacked": true
+              }],
+              "yAxes": [{
+                "stacked": true
+              }]
+            }
+          };
 
-     </script>
-     </body>
-     </html>
+
+          const myStackedBarChart = new Chart(ctx, {
+            type: 'horizontalBar',
+            data: data,
+            options: options}
+          );
+
+      </script>
+    </body>
+  </html>
   `
 
   let enc = encodeURIComponent(ht);
