@@ -1,0 +1,26 @@
+{
+    "kind": "column",
+    "name": "chart: Line with Changing Color",
+    "description": "",
+    "author": "",
+    "params": [
+      {
+        "name": "data",
+        "displayName": "Timeline data",
+        "type": "string"
+      },
+      {
+        "name": "width",
+        "displayName": "Width (default: 100%)",
+        "type": "number"
+      },
+      {
+        "name": "height",
+        "displayName": "Height (default: 500px)",
+        "type": "number"
+      }
+    ],
+    "result": {
+      "type": "uri"
+    }
+  }
