@@ -6,114 +6,124 @@ window.function = function (data, width, height) {
     height = height.value ?? 500;
    
     let ht = `<!DOCTYPE html>
-  <html>
-    <head>
-      <meta charset="utf-8">
-      <title>Radar Chart with Chart.js</title>
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      <style>
-        body {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-          margin: 0;
-        }
-      </style>
-    </head>
-    <body>
-      <canvas id="myRadarChart" width="${width}%" height="${height}px"></canvas>
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          const ctx = document.getElementById('myRadarChart').getContext('2d');
-          const textColor = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'white' : 'black';
-          const pointLabelFontSize = window.innerWidth <= 768 ? 12 : 13;
-  
-          const data = {
-            labels: [
-              'a',
-              'b',
-              'c',
-              'd',
-              'e',
-              'f',
-              'g',
-              'h'
-            ],
-            datasets: [
-              {
-                label: "Today's Touchpoint",
-                data: [${data}],
-                backgroundColor: 'rgba(255, 215, 0, 0)',
-                borderColor: '#FFD700',
-                borderWidth: 2
-              },
-              {
-                label: 'Opportunity for Expansion',
-                data: [36, 36, 36, 36, 36, 36, 36, 36],
-                backgroundColor: 'rgba(75, 192, 192, 0)',
-                borderColor: 'rgba(75, 192, 192, 1)',
-                borderWidth: 2,
-                borderDash: [5, 5],
-                pointRadius: 0,
-                pointHitRadius: 0,
-                pointHoverRadius: 0,
-                pointHoverBorderWidth: 0
-              }
-            ]
-          };
-  
-          const options = {
-            scales: {
-              r: {
-                beginAtZero: true,
-                grid: {
-                  color: 'rgba(255, 255, 255, 0)',
-                  circular: true
-                },
-                pointLabels: {
-                  color: textColor,
-                  font: {
-                    size: pointLabelFontSize
-                  },
-                padding: 15
-                },
-                ticks: {
-                  color: textColor,
-                  backdropColor: 'transparent',
-                  min: 0,
-                  max: 50,
-                  display: false
-                },
-              }
-            },
-            plugins: {
-              legend: {
-                labels: {
-                  color: textColor,
-                },
-              },
-              title: {
-                display: true,
-                text: 'test chart',
-                color: textColor,
-                font: {
-                  size: 24,
-                },
-              },
-            },
-            backgroundColor: 'white'
-          };
-  
-          const myRadarChart = new Chart(ctx, {
-            type: 'radar',
-            data: data,
-            options: options
-          });
-        });
-      </script>
-    </body>
-  </html>
+    <html>
+      <head>
+        <link  id='GoogleFontsLink' href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet' type='text/css'>
+        <script>
+     WebFontConfig = {
+     google: 
+    {families: ["Open Sans",]},active: function() { 
+     DrawTheChart(ChartData,ChartOptions,"chart-01","horizontalBar")}
+    };
+        </script>
+        <script asyn src="js/webfont.js">
+        </script><script src="js/Chart.min.js"></script>
+        <script>
+    function DrawTheChart(ChartData,ChartOptions,ChartId,ChartType){
+    eval('var myLine = new Chart(document.getElementById(ChartId).getContext("2d"),{type:"'+ChartType+'",data:ChartData,options:ChartOptions});document.getElementById(ChartId).getContext("2d").stroke();')
+    }
+        </script>
+      </head>
+      <body>
+        <canvas  id="chart-01" width="700" height="400"  style="background-color:rgba(255,255,255,1.00);border-radius:0px;width:700px;height:400px;padding-left:0px;padding-right:0px;padding-top:0px;padding-bottom:0px"></canvas>
+        <script> function MoreChartOptions(){} 
+    var ChartData = {
+      labels : ["proj1","proj2","proj3","proj4","proj5","proj6","proj7",],
+      datasets : [
+        {
+        data : [65,8,90,81,56,55,40,],
+        backgroundColor :'#3498db',
+        borderColor : 'rgba(136,136,136,0.5)',
+        label:"status1"},
+    
+        {
+        data : [21,48,40,19,96,27,100,],
+        backgroundColor :'#2ecc71',
+        borderColor : '#aaaaaa',
+        label:"status2"},
+    
+        {
+        data : [],
+        backgroundColor :'#9b59b6',
+        borderColor : '#9b59b6',
+        label:"status3"},
+    
+        {
+        data : [],
+        backgroundColor :'#f1c40f',
+        borderColor : '#f1c40f',
+        label:"status4"},
+    
+        {
+        data : [],
+        backgroundColor :'#bdc3c7',
+        borderColor : '#bdc3c7',
+        label:"status5"},
+    
+    ]
+      };
+    ChartOptions= {
+    responsive:false,
+      layout:{padding:{top:12,left:12,bottom:12,},},
+       scales: {
+      xAxes:[{
+        stacked: true,gridLines:{borderDash:[],},
+    }],
+    
+      yAxes:[{
+        stacked: true,gridLines:{borderDash:[],},
+    }],
+     },plugins:{
+    datalabels:{display:true,
+      font:{
+        style:' bold',},},
+    },
+    legend:{
+      labels:{
+        generateLabels: function(chart){
+           return  chart.data.datasets.map( function( dataset, i ){
+            return{
+              text:dataset.label,
+              lineCap:dataset.borderCapStyle,
+              lineDash:[],
+              lineDashOffset: 0,
+              lineJoin:dataset.borderJoinStyle,
+              fillStyle:dataset.backgroundColor,
+              strokeStyle:dataset.borderColor,
+              lineWidth:dataset.pointBorderWidth,
+              lineDash:dataset.borderDash,
+            }
+          })
+        },
+    
+      },
+    },
+    
+    title:{
+      display:true,
+      text:'Chart Title',
+      fontColor:'#3498db',
+      fontSize:32,
+      fontStyle:' bold',
+      },
+    elements: {
+      arc: {
+    },
+      line: {
+    },
+      rectangle: {
+    borderWidth:3,
+    borderSkipped:'left',
+    },
+    },
+    tooltips:{
+    },
+    hover:{
+      mode:'nearest',
+      animationDuration:400,
+    },
+    };
+     DrawTheChart(ChartData,ChartOptions,"chart-01","horizontalBar");</script></body></html>
   `
   
     let enc = encodeURIComponent(ht);
