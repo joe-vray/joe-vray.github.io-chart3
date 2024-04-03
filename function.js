@@ -1,7 +1,8 @@
-window.function = function (data, width, height) {
+window.function = function (projectsData, statusData, width, height) {
 
   // data
-  data = data.value ?? "";
+  projectsData = projectsData.value ?? "";
+  statusData = statusData.value ?? "";
   width = width.value ?? 100;
   height = height.value ?? 500;
  
@@ -43,7 +44,7 @@ window.function = function (data, width, height) {
           datasets: [
             {
               label: "Today's Touchpoint",
-              data: [${data}],
+              data: [${projectsData}],
               backgroundColor: 'rgba(255, 215, 0, 0)',
               borderColor: '#FFD700',
               borderWidth: 2

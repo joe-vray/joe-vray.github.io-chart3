@@ -1,12 +1,17 @@
 {
   "kind": "column",
-  "name": "chart: Line with Changing Color",
+  "name": "chart: Stacked bar horizontal",
   "description": "",
   "author": "",
   "params": [
     {
-      "name": "data",
-      "displayName": "Timeline data",
+      "name": "projectsData",
+      "displayName": "Projects data",
+      "type": "string"
+    },
+    {
+      "name": "statusData",
+      "displayName": "Status data",
       "type": "string"
     },
     {
