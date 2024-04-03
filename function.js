@@ -27,9 +27,6 @@ window.function = function (projectsData, statusData, width, height) {
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         const ctx = document.getElementById('myBarChart').getContext('2d');
-        const textColor = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'white' : 'black';
-        const pointLabelFontSize = window.innerWidth <= 768 ? 12 : 13;
-
         const data = {
           labels: [
             "proj1",
@@ -50,7 +47,6 @@ window.function = function (projectsData, statusData, width, height) {
             },
           ]
         };
-
         const options = {
           responsive:false,
           layout: {
@@ -62,10 +58,16 @@ window.function = function (projectsData, statusData, width, height) {
           },
           scales: {
             xAxes:[{
-              stacked: true,gridLines:{borderDash:[],},
+              stacked: true,
+              gridLines:{
+                borderDash:[],
+              },
             }],
             yAxes:[{
-              stacked: true,gridLines:{borderDash:[],},
+              stacked: true,
+              gridLines:{
+                borderDash:[],
+              },
             }],
           },
 
@@ -77,9 +79,7 @@ window.function = function (projectsData, statusData, width, height) {
               },
             },
           }
-          
         };
-
         const myBarChart = new Chart(ctx, {
           type: 'horizontalBar',
           data: data,
