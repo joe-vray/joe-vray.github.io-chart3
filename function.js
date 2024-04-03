@@ -133,7 +133,7 @@ window.function = function (projectsData, statusData, width, height) {
     </script>
   </body>
 </html>
-`
+`;
 
   let enc = encodeURIComponent(ht);
   let uri = `data:text/html;charset=utf-8,${enc}`;
