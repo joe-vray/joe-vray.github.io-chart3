@@ -152,7 +152,7 @@ window.function = function (projectsData, statusData, width, height) {
                 ]
               }
             ]
-          },
+          };
 
           const options = {
             "elements": {
@@ -177,13 +177,13 @@ window.function = function (projectsData, statusData, width, height) {
               }]
             }
           };
-          
+
           const myStackedBarChart = new Chart(ctx, {
             type: 'horizontalBar',
             data: data,
-            options: options}
-          );
-        })
+            options: options
+          });
+        });
       </script>
     </body>
   </html>
