@@ -58,13 +58,11 @@ window.function = function (projectsData, statusData, width, height) {
           },
           scales: {
             xAxes:[{
-              stacked: true,
               gridLines:{
                 borderDash:[],
               },
             }],
             yAxes:[{
-              stacked: true,
               gridLines:{
                 borderDash:[],
               },
