@@ -34,20 +34,20 @@ window.function = function (projectsData, statusData, width, height) {
             data : [65,8,90,81,56,55,40,],
             backgroundColor :'#3498db',
             borderColor : 'rgba(136,136,136,0.5)',
-            label:"status1"},
-
+            label:"status1"
+            },
             {
             data : [21,48,40,19,96,27,100,],
             backgroundColor :'#2ecc71',
             borderColor : '#aaaaaa',
-            label:"status2"},
-
+            label:"status2"
+            },
             {
             data : [10,15,20,25,30,31,10,],
             backgroundColor :'#9b59b6',
             borderColor : '#9b59b6',
-            label:"status3"},
-
+            label:"status3"
+            },
           ]
         };
         const options = {
@@ -77,7 +77,7 @@ window.function = function (projectsData, statusData, width, height) {
             datalabels:{
               display:true,
               font:{
-                style:' bold',
+                style:'bold',
               },
             },
           },
@@ -88,7 +88,6 @@ window.function = function (projectsData, statusData, width, height) {
                   return{
                     text:dataset.label,
                     lineCap:dataset.borderCapStyle,
-                    lineDash:[],
                     lineDashOffset: 0,
                     lineJoin:dataset.borderJoinStyle,
                     fillStyle:dataset.backgroundColor,
