@@ -62,124 +62,91 @@ window.function = function (projectsData, statusData, width, height) {
     </head>
 
     <body>
-      <canvas  id="myStackedBarChart" width="${width}%" height="${height}px"></canvas>
-      <script> 
+      <canvas id="myRadarChart" width="${width}%" height="${height}px"></canvas>
+      <script>
         document.addEventListener('DOMContentLoaded', function () {
-          const ctx = document.getElementById('myStackedBarChart').getContext('2d');
+          const ctx = document.getElementById('myRadarChart').getContext('2d');
           const textColor = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'white' : 'black';
           const pointLabelFontSize = window.innerWidth <= 768 ? 12 : 13;
-          
+  
           const data = {
-            "labels": [
-              "January",
-              "February",
-              "March",
-              "April",
-              "May",
-              "June",
-              "July"
+            labels: [
+              'a',
+              'b',
+              'c',
+              'd',
+              'e',
+              'f',
+              'g',
+              'h'
             ],
-            "datasets": [
+            datasets: [
               {
-                "label": "Dataset 1",
-                "backgroundColor": "rgba(255, 99, 132, 0.5)",
-                "borderColor": "rgb(255, 99, 132)",
-                "borderWidth": 1,
-                "data": [
-                  -32,
-                  62,
-                  64,
-                  41,
-                  -31,
-                  -32,
-                  87
-                ]
+                label: "Today's Touchpoint",
+                data: [${data}],
+                backgroundColor: 'rgba(255, 215, 0, 0)',
+                borderColor: '#FFD700',
+                borderWidth: 2
               },
               {
-                "label": "Dataset 2",
-                "backgroundColor": "rgba(54, 162, 235, 0.5)",
-                "borderColor": "rgb(54, 162, 235)",
-                "data": [
-                  9,
-                  -100,
-                  -13,
-                  64,
-                  -57,
-                  26,
-                  20
-                ]
-              },
-              {
-                "label": "Dataset 3",
-                "backgroundColor": "rgba(255, 206, 86, 0.5)",
-                "borderColor": "rgb(255, 206, 86)",
-                "data": [
-                  -45,
-                  30,
-                  -20,
-                  50,
-                  -10,
-                  40,
-                  60
-                ]
-              },
-              {
-                "label": "Dataset 4",
-                "backgroundColor": "rgba(75, 192, 192, 0.5)",
-                "borderColor": "rgb(75, 192, 192)",
-                "data": [
-                  20,
-                  -10,
-                  30,
-                  -40,
-                  25,
-                  -15,
-                  35
-                ]
-              },
-              {
-                "label": "Dataset 5",
-                "backgroundColor": "rgba(153, 102, 255, 0.5)",
-                "borderColor": "rgb(153, 102, 255)",
-                "data": [
-                  10,
-                  -20,
-                  15,
-                  -25,
-                  18,
-                  -12,
-                  22
-                ]
+                label: 'Opportunity for Expansion',
+                data: [36, 36, 36, 36, 36, 36, 36, 36],
+                backgroundColor: 'rgba(75, 192, 192, 0)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 2,
+                borderDash: [5, 5],
+                pointRadius: 0,
+                pointHitRadius: 0,
+                pointHoverRadius: 0,
+                pointHoverBorderWidth: 0
               }
             ]
           };
-
+  
           const options = {
-            "elements": {
-              "rectangle": {
-                "borderWidth": 2
+            scales: {
+              r: {
+                beginAtZero: true,
+                grid: {
+                  color: 'rgba(255, 255, 255, 0)',
+                  circular: true
+                },
+                pointLabels: {
+                  color: textColor,
+                  font: {
+                    size: pointLabelFontSize
+                  },
+                padding: 15
+                },
+                ticks: {
+                  color: textColor,
+                  backdropColor: 'transparent',
+                  min: 0,
+                  max: 50,
+                  display: false
+                },
               }
             },
-            "responsive": true,
-            "legend": {
-              "position": "right"
+            plugins: {
+              legend: {
+                labels: {
+                  color: textColor,
+                },
+              },
+              title: {
+                display: true,
+                text: 'test chart',
+                color: textColor,
+                font: {
+                  size: 24,
+                },
+              },
             },
-            "title": {
-              "display": true,
-              "text": "Chart.js Horizontal Bar Chart"
-            },
-            "scales": {
-              "xAxes": [{
-                "stacked": true
-              }],
-              "yAxes": [{
-                "stacked": true
-              }]
-            }
+            backgroundColor: 'white'
           };
-
-          const myStackedBarChart = new Chart(ctx, {
-            type: 'horizontalBar',
+  
+          const myRadarChart = new Chart(ctx, {
+            type: 'radar',
             data: data,
             options: options
           });
@@ -188,8 +155,8 @@ window.function = function (projectsData, statusData, width, height) {
     </body>
   </html>
   `
-
-  let enc = encodeURIComponent(ht);
-  let uri = `data:text/html;charset=utf-8,${enc}`
-  return uri;
-}
+  
+    let enc = encodeURIComponent(ht);
+    let uri = `data:text/html;charset=utf-8,${enc}`
+    return uri; 
+  }
