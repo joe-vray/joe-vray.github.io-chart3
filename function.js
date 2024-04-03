@@ -28,58 +28,49 @@ window.function = function (projectsData, statusData, width, height) {
       document.addEventListener('DOMContentLoaded', function () {
         const ctx = document.getElementById('myBarChart').getContext('2d');
         const data = {
-          labels: [
-            "proj1",
-            "proj2",
-          ],
-          datasets: [
+          labels : ["proj1","proj2",],
+          datasets : [
             {
-              data : [65,8,],
-              backgroundColor :'#3498db',
-              borderColor : 'rgba(136,136,136,0.5)',
-              label:"status1"
-            },
+            data : [65,8,],
+            backgroundColor :'#3498db',
+            borderColor : 'rgba(136,136,136,0.5)',
+            label:"status1"},
             {
-              data : [21,48,],
-              backgroundColor :'#2ecc71',
-              borderColor : '#aaaaaa',
-              label:"status2"
-            },
+            data : [21,48,],
+            backgroundColor :'#2ecc71',
+            borderColor : '#aaaaaa',
+            label:"status2"},        
           ]
         };
         const options = {
           responsive:false,
-          layout: {
-            padding: {
-              top:12,
-              left:12,
-              bottom:12,
-            },
-          },
-          scales: {
-            xAxes:[{
-              gridLines:{
-                borderDash:[],
-              },
+	        layout:{padding:{top:12,left:12,bottom:12,},},
+	        scales: {
+	          xAxes:[{
+              gridLines:{borderDash:[],},
             }],
-            yAxes:[{
-              gridLines:{
-                borderDash:[],
-              },
+	          yAxes:[{
+              gridLines:{borderDash:[],},
             }],
           },
-
           plugins:{
-            datalabels:{
-              display:true,
-              font:{
-                style:' bold',
-              },
+            datalabels:{display:false},
+          },
+          legend:{display:false},elements: {
+	          arc: {
             },
-          }
+	          line: {
+            },
+	          rectangle: {
+              borderWidth:3,
+            },
+          },
+          tooltips:{enabled:false},
+          hover:{
+          },
         };
         const myBarChart = new Chart(ctx, {
-          type: 'horizontalBar',
+          type: 'bar',
           data: data,
           options: options
         });
