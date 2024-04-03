@@ -28,49 +28,105 @@ window.function = function (projectsData, statusData, width, height) {
       document.addEventListener('DOMContentLoaded', function () {
         const ctx = document.getElementById('myBarChart').getContext('2d');
         const data = {
-          labels : ["proj1","proj2",],
+          labels : ["Proj1","Proj2","Proj3","Proj4","Proj5","Proj6","Proj7",],
           datasets : [
             {
-            data : [65,8,],
+            data : [65,8,90,81,56,55,40,],
             backgroundColor :'#3498db',
             borderColor : 'rgba(136,136,136,0.5)',
             label:"status1"},
+
             {
-            data : [21,48,],
+            data : [21,48,40,19,96,27,100,],
             backgroundColor :'#2ecc71',
             borderColor : '#aaaaaa',
-            label:"status2"},        
+            label:"status2"},
+
+            {
+            data : [10,15,20,25,30,31,10,],
+            backgroundColor :'#9b59b6',
+            borderColor : '#9b59b6',
+            label:"status3"},
+
           ]
         };
         const options = {
           responsive:false,
-	        layout:{padding:{top:12,left:12,bottom:12,},},
-	        scales: {
-	          xAxes:[{
-              gridLines:{borderDash:[],},
+          layout:{
+            padding:{
+              top:12,
+              left:12,
+              bottom:12,
+            },
+          },
+          scales: {
+            xAxes:[{
+              stacked: true,
+              gridLines:{
+                borderDash:[],
+              },
             }],
-	          yAxes:[{
-              gridLines:{borderDash:[],},
+            yAxes:[{
+              stacked: true,
+              gridLines:{
+                borderDash:[],
+              },
             }],
           },
           plugins:{
-            datalabels:{display:false},
+            datalabels:{
+              display:true,
+              font:{
+                style:' bold',
+              },
+            },
           },
-          legend:{display:false},elements: {
-	          arc: {
+          legend:{
+            labels:{
+              generateLabels: function(chart){
+                return  chart.data.datasets.map( function( dataset, i ){
+                  return{
+                    text:dataset.label,
+                    lineCap:dataset.borderCapStyle,
+                    lineDash:[],
+                    lineDashOffset: 0,
+                    lineJoin:dataset.borderJoinStyle,
+                    fillStyle:dataset.backgroundColor,
+                    strokeStyle:dataset.borderColor,
+                    lineWidth:dataset.pointBorderWidth,
+                    lineDash:dataset.borderDash,
+                  }
+                })
+              },
             },
-	          line: {
+          },
+          title:{
+            display:true,
+            text:'Chart Title',
+            fontColor:'#3498db',
+            fontSize:32,
+            fontStyle:' bold',
+          },
+          elements: {
+            arc: {
             },
-	          rectangle: {
+            line: {
+            },
+            rectangle: {
               borderWidth:3,
+              borderSkipped:'left',
             },
           },
-          tooltips:{enabled:false},
+          tooltips:{
+          },
           hover:{
+            mode:'nearest',
+            animationDuration:400,
           },
         };
+
         const myBarChart = new Chart(ctx, {
-          type: 'bar',
+          type: 'horizontalBar',
           data: data,
           options: options
         });
