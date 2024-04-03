@@ -184,7 +184,7 @@ window.function = function (projectsData, statusData, width, height) {
             data: data,
             options: options}
           );
-
+        }
       </script>
     </body>
   </html>
