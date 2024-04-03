@@ -32,77 +32,99 @@ window.function = function (projectsData, statusData, width, height) {
 
         const data = {
           labels: [
-            'a',
-            'b',
-            'c',
-            'd',
-            'e',
-            'f',
-            'g',
-            'h'
+            "proj1",
+            "proj2",
           ],
           datasets: [
             {
-              label: "Today's Touchpoint",
-              data: [${projectsData}],
-              backgroundColor: 'rgba(255, 215, 0, 0)',
-              borderColor: '#FFD700',
-              borderWidth: 2
+              data : [65,8,],
+              backgroundColor :'#3498db',
+              borderColor : 'rgba(136,136,136,0.5)',
+              label:"status1"
             },
             {
-              label: 'Opportunity for Expansion',
-              data: [36, 36, 36, 36, 36, 36, 36, 36],
-              backgroundColor: 'rgba(75, 192, 192, 0)',
-              borderColor: 'rgba(75, 192, 192, 1)',
-              borderWidth: 2,
-              borderDash: [5, 5],
-              pointRadius: 0,
-              pointHitRadius: 0,
-              pointHoverRadius: 0,
-              pointHoverBorderWidth: 0
-            }
+              data : [21,48,],
+              backgroundColor :'#2ecc71',
+              borderColor : '#aaaaaa',
+              label:"status2"
+            },
           ]
         };
 
         const options = {
+          responsive:false,
+          layout: {
+            padding: {
+              top:12,
+              left:12,
+              bottom:12,
+            },
+          },
           scales: {
-            r: {
-              beginAtZero: true,
-              grid: {
-                color: 'rgba(255, 255, 255, 0)',
-                circular: true
-              },
-              pointLabels: {
-                color: textColor,
-                font: {
-                  size: pointLabelFontSize
-                },
-              padding: 15
-              },
-              ticks: {
-                color: textColor,
-                backdropColor: 'transparent',
-                min: 0,
-                max: 50,
-                display: false
-              },
-            }
+            xAxes:[{
+              stacked: true,gridLines:{borderDash:[],},
+            }],
+            yAxes:[{
+              stacked: true,gridLines:{borderDash:[],},
+            }],
           },
-          plugins: {
-            legend: {
-              labels: {
-                color: textColor,
-              },
-            },
-            title: {
-              display: true,
-              text: 'test chart',
-              color: textColor,
-              font: {
-                size: 24,
+
+          plugins:{
+            datalabels:{
+              display:true,
+              font:{
+                style:' bold',
               },
             },
           },
+
+          legend:{
+            labels:{
+              generateLabels: function(chart){
+                 return  chart.data.datasets.map( function( dataset, i ){
+                  return{
+                    text:dataset.label,
+                    lineCap:dataset.borderCapStyle,
+                    lineDash:[],
+                    lineDashOffset: 0,
+                    lineJoin:dataset.borderJoinStyle,
+                    fillStyle:dataset.backgroundColor,
+                    strokeStyle:dataset.borderColor,
+                    lineWidth:dataset.pointBorderWidth,
+                    lineDash:dataset.borderDash,
+                  }
+                })
+              },
+            },
+          },
+
+          title:{
+            display:true,
+            text:'Chart Title',
+            fontColor:'#3498db',
+            fontSize:32,
+            fontStyle:' bold',
+          },
+
+          elements: {
+            arc: {
+            },
+            line: {
+            },
+            rectangle: {
+              borderWidth:3,
+              borderSkipped:'left',
+            },
+          },
+          
+          tooltips:{
+          },
+
+          hover:{
+            mode:'nearest',
+            animationDuration:400,
+          },
+
           backgroundColor: 'white'
         };
 
