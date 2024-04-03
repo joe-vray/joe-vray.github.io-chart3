@@ -76,36 +76,8 @@ window.function = function (projectsData, statusData, width, height) {
                 style:' bold',
               },
             },
-          },
-
-          title:{
-            display:true,
-            text:'Chart Title',
-            fontColor:'#3498db',
-            fontSize:32,
-            fontStyle:' bold',
-          },
-
-          elements: {
-            arc: {
-            },
-            line: {
-            },
-            rectangle: {
-              borderWidth:3,
-              borderSkipped:'left',
-            },
-          },
+          }
           
-          tooltips:{
-          },
-
-          hover:{
-            mode:'nearest',
-            animationDuration:400,
-          },
-
-          backgroundColor: 'white'
         };
 
         const myBarChart = new Chart(ctx, {
