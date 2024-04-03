@@ -7,6 +7,9 @@ window.function = function (projectsData, statusData, width, height) {
   var projectsDataArray = projectsData.split(",");
   var statusDataArray = statusData.split(",");
 
+  width = width.value ?? 100;
+  height = height.value ?? 500;
+
 
   // Object to store rolled up data
   /*
@@ -40,15 +43,11 @@ window.function = function (projectsData, statusData, width, height) {
     }
   } */
 
-
-  width = width.value ?? 100;
-  height = height.value ?? 500;
-
   let ht = `<!DOCTYPE html>
-    <html>
+  <html>
     <head>
       <meta charset="utf-8">
-      <title>Stacked bar with Chart.js</title>
+      <title>Radar Chart with Chart.js</title>
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <style>
         body {
@@ -60,7 +59,6 @@ window.function = function (projectsData, statusData, width, height) {
         }
       </style>
     </head>
-
     <body>
       <canvas id="myRadarChart" width="${width}%" height="${height}px"></canvas>
       <script>
