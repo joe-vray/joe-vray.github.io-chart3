@@ -10,7 +10,7 @@ window.function = function (projectsData, statusData, width, height) {
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Radar Chart with Chart.js</title>
+    <title>Bar Chart with Chart.js</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
       body {
@@ -23,10 +23,10 @@ window.function = function (projectsData, statusData, width, height) {
     </style>
   </head>
   <body>
-    <canvas id="myRadarChart" width="${width}%" height="${height}px"></canvas>
+    <canvas id="myBarChart" width="${width}%" height="${height}px"></canvas>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        const ctx = document.getElementById('myRadarChart').getContext('2d');
+        const ctx = document.getElementById('myBarChart').getContext('2d');
         const textColor = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'white' : 'black';
         const pointLabelFontSize = window.innerWidth <= 768 ? 12 : 13;
 
@@ -106,8 +106,8 @@ window.function = function (projectsData, statusData, width, height) {
           backgroundColor: 'white'
         };
 
-        const myRadarChart = new Chart(ctx, {
-          type: 'radar',
+        const myBarChart = new Chart(ctx, {
+          type: 'horizontalBar',
           data: data,
           options: options
         });
