@@ -78,26 +78,6 @@ window.function = function (projectsData, statusData, width, height) {
             },
           },
 
-          legend:{
-            labels:{
-              generateLabels: function(chart){
-                 return  chart.data.datasets.map( function( dataset, i ){
-                  return{
-                    text:dataset.label,
-                    lineCap:dataset.borderCapStyle,
-                    lineDash:[],
-                    lineDashOffset: 0,
-                    lineJoin:dataset.borderJoinStyle,
-                    fillStyle:dataset.backgroundColor,
-                    strokeStyle:dataset.borderColor,
-                    lineWidth:dataset.pointBorderWidth,
-                    lineDash:dataset.borderDash,
-                  }
-                })
-              },
-            },
-          },
-
           title:{
             display:true,
             text:'Chart Title',
