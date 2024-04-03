@@ -33,13 +33,13 @@ window.function = function (projectsData, statusData, width, height) {
             {
             data : [65,8,90,81,56,55,40,],
             backgroundColor :'#3498db',
-            borderColor : 'rgba(136,136,136,0.5)',
+            borderColor : '#3498db',
             label:"status1"
             },
             {
             data : [21,48,40,19,96,27,100,],
             backgroundColor :'#2ecc71',
-            borderColor : '#aaaaaa',
+            borderColor : '#2ecc71',
             label:"status2"
             },
             {
@@ -87,13 +87,9 @@ window.function = function (projectsData, statusData, width, height) {
                 return  chart.data.datasets.map( function( dataset, i ){
                   return{
                     text:dataset.label,
-                    lineCap:dataset.borderCapStyle,
                     lineDashOffset: 0,
-                    lineJoin:dataset.borderJoinStyle,
                     fillStyle:dataset.backgroundColor,
                     strokeStyle:dataset.borderColor,
-                    lineWidth:dataset.pointBorderWidth,
-                    lineDash:dataset.borderDash,
                   }
                 })
               },
@@ -122,6 +118,7 @@ window.function = function (projectsData, statusData, width, height) {
             mode:'nearest',
             animationDuration:400,
           },
+          backgroundColor: 'white'
         };
 
         const myBarChart = new Chart(ctx, {
